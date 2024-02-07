@@ -44,6 +44,7 @@ public class AuxiliaryServiceImpl implements AuxiliaryService {
                 listOfReminders.remove(i);
             }
         }
+        log.info("Reminders deleted");
     }
 
     @Override
