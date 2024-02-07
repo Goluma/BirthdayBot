@@ -128,6 +128,7 @@ public class Bot extends TelegramLongPollingBot {
                     return;
                 }
                 String str = commandHandler.showReminders(user, listOfReminders);
+                log.info("Reminders have been shown");
                 sendText(user.getId(), str);
                 sendReplyKeyboard(user.getId());
 
