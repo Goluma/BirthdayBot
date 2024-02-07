@@ -1,17 +1,11 @@
 package com.birthdaybot.service.impl;
 
-import com.birthdaybot.domain.entities.ReminderEntity;
-import com.birthdaybot.repositories.ReminderRepository;
+import com.birthdaybot.domain.entitiy.ReminderEntity;
+import com.birthdaybot.repository.ReminderRepository;
 import com.birthdaybot.service.ReminderService;
-import com.birthdaybot.service.UserService;
-import jakarta.persistence.EntityManager;
-import jakarta.transaction.Transactional;
-import jakarta.websocket.Session;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 

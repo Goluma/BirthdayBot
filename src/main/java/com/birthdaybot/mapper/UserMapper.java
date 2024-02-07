@@ -1,11 +1,10 @@
-package com.birthdaybot.mappers.impl;
+package com.birthdaybot.mapper;
 
-import com.birthdaybot.domain.entities.UserEntity;
-import com.birthdaybot.mappers.UserMapper;
+import com.birthdaybot.domain.entitiy.UserEntity;
 
-public final class UserMapperImpl implements UserMapper {
 
-    @Override
+public final class UserMapperImpl{
+
     public UserEntity mapToUserEntity(Long userId, String firstName, String lastName){
         UserEntity userEntity = new UserEntity();
         userEntity.setUserId(userId);

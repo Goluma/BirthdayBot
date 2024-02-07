@@ -1,12 +1,11 @@
-package com.birthdaybot.mappers.impl;
+package com.birthdaybot.mapper;
 
-import com.birthdaybot.domain.entities.ReminderEntity;
-import com.birthdaybot.mappers.ReminderMapper;
+import com.birthdaybot.domain.entitiy.ReminderEntity;
 
 import java.util.Map;
 
-public class ReminderMapperImpl implements ReminderMapper {
-    @Override
+public class ReminderMapperImpl{
+
     public ReminderEntity mapToReminderEntity(Map<Integer, String> userHashMap) {
         ReminderEntity reminderEntity = new ReminderEntity();
         reminderEntity.setBirthdayPerson(userHashMap.get(1));
