@@ -206,6 +206,7 @@ public class Bot extends TelegramLongPollingBot {
 
         try{
             execute(sendMessage);
+            log.info("Buttons have been send");
         } catch (TelegramApiException e){
             throw new RuntimeException();
         }
