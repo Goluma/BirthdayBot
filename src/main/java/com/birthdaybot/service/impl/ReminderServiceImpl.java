@@ -2,7 +2,6 @@ package com.birthdaybot.service.impl;
 
 import com.birthdaybot.domain.entitiy.ReminderEntity;
 import com.birthdaybot.repository.ReminderRepository;
-import com.birthdaybot.service.ReminderService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,7 +9,7 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 @Service
-public class ReminderServiceImpl implements ReminderService {
+public class ReminderServiceImpl implements com.birthdaybot.service.ReminderService {
 
     private ReminderRepository reminderRepository;
 

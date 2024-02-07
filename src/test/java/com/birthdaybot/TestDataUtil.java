@@ -1,7 +1,7 @@
 package com.birthdaybot;
 
-import com.birthdaybot.domain.entities.ReminderEntity;
-import com.birthdaybot.domain.entities.UserEntity;
+import com.birthdaybot.domain.entitiy.ReminderEntity;
+import com.birthdaybot.domain.entitiy.UserEntity;
 
 import java.util.ArrayList;
 

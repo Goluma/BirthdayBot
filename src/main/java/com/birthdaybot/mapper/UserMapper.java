@@ -1,9 +1,11 @@
 package com.birthdaybot.mapper;
 
 import com.birthdaybot.domain.entitiy.UserEntity;
+import org.springframework.stereotype.Component;
 
 
-public final class UserMapperImpl{
+@Component
+public final class UserMapper {
 
     public UserEntity mapToUserEntity(Long userId, String firstName, String lastName){
         UserEntity userEntity = new UserEntity();

@@ -1,7 +1,6 @@
-package com.birthdaybot.domain.entities;
+package com.birthdaybot.domain.entitiy;
 
 import jakarta.persistence.*;
-import jakarta.transaction.Transactional;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;

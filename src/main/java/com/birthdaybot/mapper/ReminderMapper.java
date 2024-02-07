@@ -1,10 +1,12 @@
 package com.birthdaybot.mapper;
 
 import com.birthdaybot.domain.entitiy.ReminderEntity;
+import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
-public class ReminderMapperImpl{
+@Component
+public class ReminderMapper {
 
     public ReminderEntity mapToReminderEntity(Map<Integer, String> userHashMap) {
         ReminderEntity reminderEntity = new ReminderEntity();

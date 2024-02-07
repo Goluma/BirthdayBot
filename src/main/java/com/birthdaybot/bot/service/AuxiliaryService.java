@@ -1,6 +1,6 @@
 package com.birthdaybot.bot.service;
 
-import com.birthdaybot.domain.entities.ReminderEntity;
+import com.birthdaybot.domain.entitiy.ReminderEntity;
 
 import java.util.List;
 

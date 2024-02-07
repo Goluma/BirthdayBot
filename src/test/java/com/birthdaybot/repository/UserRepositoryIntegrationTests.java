@@ -1,7 +1,7 @@
-package com.birthdaybot.repositories;
+package com.birthdaybot.repository;
 
 import com.birthdaybot.TestDataUtil;
-import com.birthdaybot.domain.entities.UserEntity;
+import com.birthdaybot.domain.entitiy.UserEntity;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;

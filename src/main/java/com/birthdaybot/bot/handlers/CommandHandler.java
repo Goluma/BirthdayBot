@@ -1,6 +1,6 @@
 package com.birthdaybot.bot.handlers;
 
-import com.birthdaybot.domain.entities.ReminderEntity;
+import com.birthdaybot.domain.entitiy.ReminderEntity;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.User;
 

@@ -1,6 +1,6 @@
-package com.birthdaybot.repositories;
+package com.birthdaybot.repository;
 
-import com.birthdaybot.domain.entities.UserEntity;
+import com.birthdaybot.domain.entitiy.UserEntity;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

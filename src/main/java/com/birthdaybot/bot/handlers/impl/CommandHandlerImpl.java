@@ -2,7 +2,7 @@ package com.birthdaybot.bot.handlers.impl;
 
 import com.birthdaybot.bot.handlers.CommandHandler;
 import com.birthdaybot.bot.service.BusinessService;
-import com.birthdaybot.domain.entities.ReminderEntity;
+import com.birthdaybot.domain.entitiy.ReminderEntity;
 import lombok.extern.java.Log;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.objects.Message;

@@ -1,6 +1,6 @@
-package com.birthdaybot.repositories;
+package com.birthdaybot.repository;
 
-import com.birthdaybot.domain.entities.ReminderEntity;
+import com.birthdaybot.domain.entitiy.ReminderEntity;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

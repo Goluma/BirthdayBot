@@ -2,7 +2,7 @@ package com.birthdaybot.bot;
 
 import com.birthdaybot.bot.handlers.CommandHandler;
 import com.birthdaybot.bot.service.impl.AuxiliaryServiceImpl;
-import com.birthdaybot.domain.entities.ReminderEntity;
+import com.birthdaybot.domain.entitiy.ReminderEntity;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

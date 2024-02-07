@@ -1,10 +1,9 @@
 package com.birthdaybot.service;
 
-import com.birthdaybot.domain.entities.ReminderEntity;
+import com.birthdaybot.domain.entitiy.ReminderEntity;
 
 
 import java.util.List;
-import java.util.Optional;
 
 public interface ReminderService {
     ReminderEntity saveReminder(ReminderEntity reminderEntity);

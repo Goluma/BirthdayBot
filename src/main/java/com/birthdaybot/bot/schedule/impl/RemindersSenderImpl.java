@@ -2,7 +2,6 @@ package com.birthdaybot.bot.schedule.impl;
 
 import com.birthdaybot.bot.Bot;
 import com.birthdaybot.bot.schedule.RemindersSender;
-import com.birthdaybot.domain.entities.ReminderEntity;
 import com.birthdaybot.service.UserService;
 import lombok.extern.java.Log;
 import org.springframework.stereotype.Component;

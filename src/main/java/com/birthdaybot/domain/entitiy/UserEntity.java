@@ -1,4 +1,4 @@
-package com.birthdaybot.domain.entities;
+package com.birthdaybot.domain.entitiy;
 
 import jakarta.persistence.*;
 import lombok.*;

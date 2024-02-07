@@ -1,11 +1,10 @@
 package com.birthdaybot.service.impl;
 
-import com.birthdaybot.domain.entities.ReminderEntity;
-import com.birthdaybot.domain.entities.UserEntity;
-import com.birthdaybot.repositories.UserRepository;
+import com.birthdaybot.domain.entitiy.ReminderEntity;
+import com.birthdaybot.domain.entitiy.UserEntity;
+import com.birthdaybot.repository.UserRepository;
 import com.birthdaybot.service.UserService;
 import org.springframework.stereotype.Service;
-import org.telegram.telegrambots.meta.api.methods.GetUserProfilePhotos;
 
 import java.util.Optional;
 import java.util.UUID;

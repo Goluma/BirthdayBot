@@ -2,10 +2,10 @@ package com.birthdaybot.bot.service.impl;
 
 import com.birthdaybot.bot.service.AuxiliaryService;
 import com.birthdaybot.bot.service.BusinessService;
-import com.birthdaybot.domain.entities.ReminderEntity;
-import com.birthdaybot.domain.entities.UserEntity;
-import com.birthdaybot.mappers.ReminderMapper;
-import com.birthdaybot.mappers.UserMapper;
+import com.birthdaybot.domain.entitiy.ReminderEntity;
+import com.birthdaybot.domain.entitiy.UserEntity;
+import com.birthdaybot.mapper.ReminderMapper;
+import com.birthdaybot.mapper.UserMapper;
 import com.birthdaybot.service.ReminderService;
 import com.birthdaybot.service.UserService;
 import lombok.extern.java.Log;
