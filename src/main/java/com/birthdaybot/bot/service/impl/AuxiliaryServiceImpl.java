@@ -30,6 +30,7 @@ public class AuxiliaryServiceImpl implements AuxiliaryService {
         LocalDate localDate = LocalDate.now();
         String str = localDate.getDayOfMonth() + "." + localDate.getMonthValue();
         listOfReminders = reminderService.findAllRemindersWithUsersId(str);
+        log.info("Reminders have been set");
     }
 
     public List<Object[]> getListOfTodayReminders(){
@@ -38,12 +39,7 @@ public class AuxiliaryServiceImpl implements AuxiliaryService {
 
     @Override
     public void deleteRemindersFromTheList(Long id) {
-        for (int i = 0; i < listOfReminders.size(); i++){
-            Object[] row = listOfReminders.get(i);
-            if (row[0].equals(id)){
-                listOfReminders.remove(i);
-            }
-        }
+        listOfReminders.removeIf(x-> x[0].equals(id));
         log.info("Reminders deleted");
     }
 
