@@ -81,11 +81,10 @@ public class ReminderRepositoryIntegrationTests {
     @Test
     public void testThatListOfTodayRemindersCanBeFind(){
         ReminderEntity reminderEntityA = TestDataUtil.createReminderEntityA();
-        underTest.save(reminderEntityA);
         ReminderEntity reminderEntityB = TestDataUtil.createReminderEntityB();
-        underTest.save(reminderEntityB);
         ReminderEntity reminderEntityC = TestDataUtil.createReminderEntityC();
-        underTest.save(reminderEntityC);
+        List<ReminderEntity> list = List.of(reminderEntityA, reminderEntityB, reminderEntityC);
+        underTest.saveAll(list);
 
         List<AllTodayRemindersDto> todayRemindersDtoList = underTest.findAllTodayReminders();
 
