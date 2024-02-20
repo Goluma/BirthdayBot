@@ -70,10 +70,9 @@ public class Bot extends TelegramLongPollingBot {
                 sendText(user.getId(), "Введите никнейм пользователя (не обязательно, нажмите кнопку \"Пропустить\").");
                 sendButton(user.getId(), "Пропустить");
             } else if (flagToAddReminder == 2){
-                sendText(user.getId(), "Введите дату рождения в формате д.м (например, 26.6 - 26 июня)");
+                sendText(user.getId(), "Введите дату рождения в формате гггг-мм-дд (например, 2004-06-26)");
             } else if (flagToAddReminder == 3){
-                sendText(user.getId(), "Напоминание успешно создана!");
-                log.info("Reminder created.");
+                sendText(user.getId(), "Напоминание успешно создано!");
                 sendReplyKeyboard(user.getId());
             }
             flagToAddReminder++;
@@ -128,18 +127,18 @@ public class Bot extends TelegramLongPollingBot {
                     return;
                 }
                 String str = commandHandler.showReminders(user, listOfReminders);
-                log.info("Reminders have been shown");
                 sendText(user.getId(), str);
+                log.info("Reminder sent.");
                 sendReplyKeyboard(user.getId());
 
             } else {
                 commandHandler.deleteUser(user);
-                log.info("User was deleted!");
                 sendText(user.getId(), "Пользователь удален, чтобы продолжить работу с ботом, нажмите start.");
                 sendButton(user.getId(), "/start");
             }
         } else if (msg.getText().equals("Поздравил!")) {
             sendReplyKeyboard(user.getId());
+
             auxiliaryServiceImpl.deleteRemindersFromTheList(user.getId());
         } else {
             log.info(user.getId() + " " + user.getFirstName() + "  wrote  " + msg.getText());

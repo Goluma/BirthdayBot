@@ -16,5 +16,5 @@ public interface BusinessService {
 
     void addUser(User user, Message msg);
 
-    String showReminders(User user, List<ReminderEntity> listOfReminders);
+    String createStringOfReminders(User user, List<ReminderEntity> listOfReminders);
 }

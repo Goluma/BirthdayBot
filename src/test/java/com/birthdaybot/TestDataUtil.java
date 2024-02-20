@@ -3,12 +3,16 @@ package com.birthdaybot;
 import com.birthdaybot.domain.entitiy.ReminderEntity;
 import com.birthdaybot.domain.entitiy.UserEntity;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 
 public final class TestDataUtil {
 
     private TestDataUtil(){}
+
+    private static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     public static UserEntity createUserEntityA(){
         UserEntity userEntity = new UserEntity();
@@ -38,8 +42,7 @@ public final class TestDataUtil {
 
     public static ReminderEntity createReminderEntityA(){
         ReminderEntity reminderEntity = new ReminderEntity();
-        reminderEntity.setNoticeId(1L);
-        reminderEntity.setBirthday("19.6");
+        reminderEntity.setBirthday(LocalDate.parse("2004-02-15", dtf));
         reminderEntity.setBirthdayPersonNickname("");
         reminderEntity.setBirthdayPerson("Роман Бабаев");
         return reminderEntity;
@@ -47,8 +50,7 @@ public final class TestDataUtil {
 
     public static ReminderEntity createReminderEntityB(){
         ReminderEntity reminderEntity = new ReminderEntity();
-        reminderEntity.setNoticeId(2L);
-        reminderEntity.setBirthday("19.6");
+        reminderEntity.setBirthday(LocalDate.parse("2004-02-15", dtf));
         reminderEntity.setBirthdayPersonNickname("");
         reminderEntity.setBirthdayPerson("Игорь Акинфеев");
         return reminderEntity;
@@ -56,9 +58,8 @@ public final class TestDataUtil {
 
     public static ReminderEntity createReminderEntityC(){
         ReminderEntity reminderEntity = new ReminderEntity();
-        reminderEntity.setNoticeId(3L);
-        reminderEntity.setBirthday("19.6");
-        reminderEntity.setBirthdayPersonNickname("");
+        reminderEntity.setBirthday(LocalDate.parse("2004-02-15", dtf));
+        reminderEntity.setBirthdayPersonNickname("@goluma04");
         reminderEntity.setBirthdayPerson("Виктор Давила");
         return reminderEntity;
     }

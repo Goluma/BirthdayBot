@@ -1,17 +1,18 @@
 package com.birthdaybot.service.impl;
 
+import com.birthdaybot.domain.dto.AllTodayRemindersDto;
 import com.birthdaybot.domain.entitiy.ReminderEntity;
 import com.birthdaybot.repository.ReminderRepository;
 import org.springframework.stereotype.Service;
+import com.birthdaybot.service.ReminderService;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
+import java.util.UUID;
 
 @Service
-public class ReminderServiceImpl implements com.birthdaybot.service.ReminderService {
+public class ReminderServiceImpl implements ReminderService {
 
-    private ReminderRepository reminderRepository;
+    private final ReminderRepository reminderRepository;
 
     public ReminderServiceImpl(ReminderRepository reminderRepository){
         this.reminderRepository = reminderRepository;
@@ -24,25 +25,18 @@ public class ReminderServiceImpl implements com.birthdaybot.service.ReminderServ
     }
 
     @Override
-    public void deleteReminder(Long noticeId) {
-        reminderRepository.deleteById(noticeId);
+    public void deleteReminder(UUID noticeUuid) {
+        reminderRepository.deleteById(noticeUuid);
     }
 
     @Override
     public void deleteAllReminders(List<ReminderEntity> listOfReminders) {
-        for (int i = 0; i < listOfReminders.size(); i++){
-            reminderRepository.delete(listOfReminders.get(i));
-        }
+        reminderRepository.deleteAll(listOfReminders);
     }
 
-    @Override
-    public List<ReminderEntity> findAllReminders(String str) {
-        return StreamSupport.stream(reminderRepository.findAllByDate(str).spliterator(), false)
-                .collect(Collectors.toList());
-    }
 
     @Override
-    public List<Object[]> findAllRemindersWithUsersId(String date) {
-        return reminderRepository.findAllRemindersWithUsersId(date);
+    public List<AllTodayRemindersDto> findAllTodayReminders() {
+        return reminderRepository.findAllTodayReminders();
     }
 }

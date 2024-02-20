@@ -14,7 +14,7 @@ import java.util.List;
 @Log
 public class CommandHandlerImpl implements CommandHandler {
 
-    private BusinessService businessService;
+    private final BusinessService businessService;
 
     public CommandHandlerImpl(BusinessService businessService){
         this.businessService = businessService;
@@ -43,6 +43,6 @@ public class CommandHandlerImpl implements CommandHandler {
 
     @Override
     public String showReminders(User user, List<ReminderEntity> listOfReminders) {
-        return businessService.showReminders(user, listOfReminders);
+        return businessService.createStringOfReminders(user, listOfReminders);
     }
 }

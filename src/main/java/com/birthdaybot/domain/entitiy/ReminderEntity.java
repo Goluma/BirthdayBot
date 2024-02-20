@@ -6,29 +6,28 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.UUID;
 
-@Getter
 @Setter
+@Getter
 @EntityListeners(AuditingEntityListener.class)
 @Entity
 @Table(name = "reminder")
 public class ReminderEntity {
 
+
     @Id
-    @SequenceGenerator(name = "notice_seq", sequenceName = "notice_id_seq", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "notice_seq")
-    private Long noticeId;
+    @GeneratedValue
+    private UUID noticeUuid;
 
     private String birthdayPerson;
 
     private String birthdayPersonNickname;
 
-    private String birthday;
-
-    private UUID uuid;
+    private LocalDate birthday;
 
     @CreatedDate
     @Column(name = "CREATED_AT")
@@ -45,7 +44,7 @@ public class ReminderEntity {
 
         ReminderEntity reminderEntity = (ReminderEntity) o;
 
-        return this.noticeId.equals(reminderEntity.noticeId)
+        return this.noticeUuid.equals(reminderEntity.noticeUuid)
                 && this.birthday.equals(reminderEntity.birthday)
                 && this.birthdayPerson.equals((reminderEntity.birthdayPerson))
                 && this.birthdayPersonNickname.equals(reminderEntity.birthdayPersonNickname);
@@ -53,6 +52,6 @@ public class ReminderEntity {
 
     @Override
     public int hashCode(){
-        return Objects.hash(noticeId, birthday, birthdayPerson, birthdayPersonNickname);
+        return Objects.hash(noticeUuid, birthday, birthdayPerson, birthdayPersonNickname);
     }
 }

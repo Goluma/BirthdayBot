@@ -1,6 +1,7 @@
 package com.birthdaybot.repository;
 
 import com.birthdaybot.TestDataUtil;
+import com.birthdaybot.domain.dto.AllTodayRemindersDto;
 import com.birthdaybot.domain.entitiy.ReminderEntity;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.TestPropertySource;
 
+import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -29,7 +31,7 @@ public class ReminderRepositoryIntegrationTests {
         ReminderEntity reminderEntity = TestDataUtil.createReminderEntityA();
         underTest.save(reminderEntity);
 
-        Optional<ReminderEntity> savedReminder = underTest.findById(reminderEntity.getNoticeId());
+        Optional<ReminderEntity> savedReminder = underTest.findById(reminderEntity.getNoticeUuid());
 
         assertThat(savedReminder).isPresent();
         assertThat(savedReminder.get()).isEqualTo(reminderEntity);
@@ -42,7 +44,7 @@ public class ReminderRepositoryIntegrationTests {
         reminderEntity.setBirthdayPersonNickname("UPDATED");
         underTest.save(reminderEntity);
 
-        Optional<ReminderEntity> savedReminder = underTest.findById(reminderEntity.getNoticeId());
+        Optional<ReminderEntity> savedReminder = underTest.findById(reminderEntity.getNoticeUuid());
 
         assertThat(savedReminder).isPresent();
         assertThat(savedReminder.get()).isEqualTo(reminderEntity);
@@ -69,10 +71,24 @@ public class ReminderRepositoryIntegrationTests {
         ReminderEntity reminderEntityA = TestDataUtil.createReminderEntityA();
         underTest.save(reminderEntityA);
 
-        underTest.deleteById(reminderEntityA.getNoticeId());
+        underTest.deleteById(reminderEntityA.getNoticeUuid());
 
-        Optional<ReminderEntity> deletedReminder = underTest.findById(reminderEntityA.getNoticeId());
+        Optional<ReminderEntity> deletedReminder = underTest.findById(reminderEntityA.getNoticeUuid());
 
         assertThat(deletedReminder).isEmpty();
+    }
+
+    @Test
+    public void testThatListOfTodayRemindersCanBeFind(){
+        ReminderEntity reminderEntityA = TestDataUtil.createReminderEntityA();
+        underTest.save(reminderEntityA);
+        ReminderEntity reminderEntityB = TestDataUtil.createReminderEntityB();
+        underTest.save(reminderEntityB);
+        ReminderEntity reminderEntityC = TestDataUtil.createReminderEntityC();
+        underTest.save(reminderEntityC);
+
+        List<AllTodayRemindersDto> todayRemindersDtoList = underTest.findAllTodayReminders();
+
+        assertThat(todayRemindersDtoList).hasSize(3);
     }
 }

@@ -22,12 +22,12 @@ import java.util.Map;
 public class BusinessServiceImpl implements BusinessService {
 
 
-    private UserService userService;
-    private ReminderService reminderService;
-    private ReminderMapper reminderMapper;
-    private UserMapper userMapper;
+    private final UserService userService;
+    private final ReminderService reminderService;
+    private final ReminderMapper reminderMapper;
+    private final UserMapper userMapper;
     private Map<Integer, String> userHashMap;
-    private AuxiliaryService auxiliaryService;
+    private final AuxiliaryService auxiliaryService;
 
     public BusinessServiceImpl(UserService userService,
                                ReminderService reminderService,
@@ -57,7 +57,7 @@ public class BusinessServiceImpl implements BusinessService {
             ReminderEntity reminderEntity = reminderMapper.mapToReminderEntity(userHashMap);
             reminderService.saveReminder(reminderEntity);
             userService.addReminderToUser(reminderEntity, user.getId());
-
+            log.info("Reminder created.");
             userHashMap.clear();
         }
     }
@@ -67,11 +67,12 @@ public class BusinessServiceImpl implements BusinessService {
         if (userService.findUserById(user.getId()).isEmpty()){
             UserEntity mappedUser = userMapper.mapToUserEntity(user.getId(), user.getFirstName(), user.getLastName());
             userService.saveUser(mappedUser);
+            log.info("User created.");
         }
     }
 
     @Override
-    public String showReminders(User user, List<ReminderEntity> listOfReminders) {
+    public String createStringOfReminders(User user, List<ReminderEntity> listOfReminders) {
         StringBuilder str = new StringBuilder();
         for(int i = 0; i < listOfReminders.size(); i++){
             str.append(String.format("%s: %s %s %s\n", i,
@@ -79,6 +80,7 @@ public class BusinessServiceImpl implements BusinessService {
                     listOfReminders.get(i).getBirthdayPersonNickname(),
                     listOfReminders.get(i).getBirthday()));
         }
+        log.info("String of reminders created.");
         return str.toString();
     }
 
@@ -90,7 +92,7 @@ public class BusinessServiceImpl implements BusinessService {
             return String.format("Число не должно превышать %s.", listOfReminders.size()-1);
         }
         ReminderEntity reminderEntityToDelete = listOfReminders.get(i);
-        reminderService.deleteReminder(reminderEntityToDelete.getNoticeId());
+        reminderService.deleteReminder(reminderEntityToDelete.getNoticeUuid());
         log.info("Reminder deleted.");
         return "Напоминание удалено.";
     }
@@ -104,6 +106,6 @@ public class BusinessServiceImpl implements BusinessService {
             reminderService.deleteAllReminders(listOfReminders);
             userService.delete(user.getId());
         }
+        log.info("User deleted.");
     }
-
 }

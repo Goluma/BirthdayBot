@@ -2,6 +2,7 @@ package com.birthdaybot.bot.schedule.impl;
 
 import com.birthdaybot.bot.Bot;
 import com.birthdaybot.bot.schedule.RemindersSender;
+import com.birthdaybot.domain.dto.AllTodayRemindersDto;
 import com.birthdaybot.service.UserService;
 import lombok.extern.java.Log;
 import org.springframework.stereotype.Component;
@@ -21,17 +22,21 @@ public class RemindersSenderImpl implements RemindersSender {
     }
 
     @Override
-    public void sendReminders(List<Object[]> reminderEntityList){
+    public void sendReminders(List<AllTodayRemindersDto> reminderEntityList){
         if (reminderEntityList == null || reminderEntityList.size() == 0){
             return;
         }
-        for (int i = 0; i < reminderEntityList.size(); i++){
-            Object[] row = reminderEntityList.get(i);
-            bot.sendText((Long) row[0],
-                    String.format("Поздравьте пользователя %s %s", row[1], row[2]));
-            bot.sendButton((Long) row[0], "Поздравил!");
-            log.info("Reminders sent");
-        }
+
+        reminderEntityList.stream().forEach(x -> {
+                    bot.sendText(x.getUserId(),
+                            String.format("Поздравьте пользователя %s %s",
+                                    x.getBirthdayPerson(),
+                                    x.getBirthdayPersonNickname()));
+                    bot.sendButton(x.getUserId(), "Поздравил!");
+                });
+
+
+        log.info("Reminders sent");
 
     }
 

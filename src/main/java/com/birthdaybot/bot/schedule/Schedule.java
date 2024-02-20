@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class Schedule {
 
-    private RemindersSender remindersSender;
-    private AuxiliaryServiceImpl auxiliaryServiceImpl;
+    private final RemindersSender remindersSender;
+    private final AuxiliaryServiceImpl auxiliaryServiceImpl;
 
 
     public Schedule(RemindersSender remindersSender, AuxiliaryServiceImpl auxiliaryServiceImpl){
@@ -22,12 +22,12 @@ public class Schedule {
         remindersSender.sendReminders(auxiliaryServiceImpl.getListOfTodayReminders());
     }
 
-    @Scheduled(cron = "0 36 23 * * *")
+    @Scheduled(cron = "0 30 12 * * *")
     public void sendRemindersSecond(){
         remindersSender.sendReminders(auxiliaryServiceImpl.getListOfTodayReminders());
     }
 
-    @Scheduled(cron = "0 37 23 * * *")
+    @Scheduled(cron = "0 31 12 * * *")
     public void sendRemindersThird(){
         remindersSender.sendReminders(auxiliaryServiceImpl.getListOfTodayReminders());
     }
