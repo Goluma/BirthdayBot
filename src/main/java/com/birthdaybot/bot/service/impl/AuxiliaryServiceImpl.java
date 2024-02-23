@@ -44,8 +44,10 @@ public class AuxiliaryServiceImpl implements AuxiliaryService {
 
     @Override
     public List<ReminderEntity> getUsersReminders(Long userId) {
-        Optional<UserEntity> userEntity = userService.findUserById(userId);
+        Optional<UserEntity> user = userService.findUserById(userId);
+        List<ReminderEntity> reminderEntityList = user.get().getListOfReminders();
+        reminderEntityList.removeIf(x -> x.getDeletedAt() != null);
         log.info("Got user reminders list.");
-        return userEntity.get().getListOfReminders();
+        return reminderEntityList;
     }
 }

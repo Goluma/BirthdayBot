@@ -22,12 +22,12 @@ public class Schedule {
         remindersSender.sendReminders(auxiliaryServiceImpl.getListOfTodayReminders());
     }
 
-    @Scheduled(cron = "0 30 12 * * *")
+    @Scheduled(cron = "0 0 15 * * *")
     public void sendRemindersSecond(){
         remindersSender.sendReminders(auxiliaryServiceImpl.getListOfTodayReminders());
     }
 
-    @Scheduled(cron = "0 31 12 * * *")
+    @Scheduled(cron = "0 0 18 * * *")
     public void sendRemindersThird(){
         remindersSender.sendReminders(auxiliaryServiceImpl.getListOfTodayReminders());
     }

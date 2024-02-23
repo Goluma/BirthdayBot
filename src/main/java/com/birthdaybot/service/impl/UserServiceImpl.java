@@ -6,6 +6,7 @@ import com.birthdaybot.repository.UserRepository;
 import com.birthdaybot.service.UserService;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -30,7 +31,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void delete(Long userId) {
-        userRepository.deleteByUserId(userId);
+        userRepository.deleteFromSelect(userId, LocalDateTime.now());
     }
 
     @Override
@@ -43,6 +44,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserEntity findById(UUID userId) {
-        return userRepository.findById(userId).get();
+        return userRepository.findByUuid(userId).get();
     }
 }

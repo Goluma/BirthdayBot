@@ -6,6 +6,7 @@ import com.birthdaybot.repository.ReminderRepository;
 import org.springframework.stereotype.Service;
 import com.birthdaybot.service.ReminderService;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -26,14 +27,16 @@ public class ReminderServiceImpl implements ReminderService {
 
     @Override
     public void deleteReminder(UUID noticeUuid) {
-        reminderRepository.deleteById(noticeUuid);
+        reminderRepository.deleteFromSelect(noticeUuid, LocalDateTime.now());
     }
 
     @Override
     public void deleteAllReminders(List<ReminderEntity> listOfReminders) {
-        reminderRepository.deleteAll(listOfReminders);
+        listOfReminders.stream().forEach(x ->
+                reminderRepository.deleteFromSelect(
+                        x.getNoticeUuid(),
+                        LocalDateTime.now()));
     }
-
 
     @Override
     public List<AllTodayRemindersDto> findAllTodayReminders() {

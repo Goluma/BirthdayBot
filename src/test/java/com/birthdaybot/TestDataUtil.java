@@ -42,7 +42,7 @@ public final class TestDataUtil {
 
     public static ReminderEntity createReminderEntityA(){
         ReminderEntity reminderEntity = new ReminderEntity();
-        reminderEntity.setBirthday(LocalDate.parse("2004-02-15", dtf));
+        reminderEntity.setBirthday(LocalDate.parse("2004-02-23", dtf));
         reminderEntity.setBirthdayPersonNickname("");
         reminderEntity.setBirthdayPerson("Роман Бабаев");
         return reminderEntity;
@@ -50,7 +50,7 @@ public final class TestDataUtil {
 
     public static ReminderEntity createReminderEntityB(){
         ReminderEntity reminderEntity = new ReminderEntity();
-        reminderEntity.setBirthday(LocalDate.parse("2004-02-15", dtf));
+        reminderEntity.setBirthday(LocalDate.parse("2004-02-23", dtf));
         reminderEntity.setBirthdayPersonNickname("");
         reminderEntity.setBirthdayPerson("Игорь Акинфеев");
         return reminderEntity;
@@ -58,7 +58,7 @@ public final class TestDataUtil {
 
     public static ReminderEntity createReminderEntityC(){
         ReminderEntity reminderEntity = new ReminderEntity();
-        reminderEntity.setBirthday(LocalDate.parse("2004-02-15", dtf));
+        reminderEntity.setBirthday(LocalDate.parse("2004-02-23", dtf));
         reminderEntity.setBirthdayPersonNickname("@goluma04");
         reminderEntity.setBirthdayPerson("Виктор Давила");
         return reminderEntity;

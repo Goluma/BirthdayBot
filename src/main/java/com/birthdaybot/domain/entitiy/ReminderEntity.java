@@ -37,6 +37,9 @@ public class ReminderEntity {
     @Column(name = "UPDATED_AT")
     private LocalDateTime updatedAt;
 
+    @Column(name = "DELETED_AT")
+    private LocalDateTime deletedAt;
+
     @Override
     public boolean equals(Object o){
         if(this == o) return true;

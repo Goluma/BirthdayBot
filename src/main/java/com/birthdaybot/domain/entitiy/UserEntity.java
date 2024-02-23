@@ -38,6 +38,9 @@ public class UserEntity {
     @Column(name = "UPDATED_AT")
     private LocalDateTime updatedAt;
 
+    @Column(name = "DELETED_AT")
+    private LocalDateTime deletedAt;
+
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     @JoinColumn(name = "uuid")
     private List<ReminderEntity> listOfReminders = new ArrayList<>();
