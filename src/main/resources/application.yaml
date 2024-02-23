@@ -14,6 +14,5 @@ server:
 interval-in-cron: 0 0 9 * * *
 
 telegram-bot:
-            name: B_i_r_t_h_d_a_y_0_4_Bot
-            token: 6847005882:AAEk3xMW5n1sPaObqLhh3DC8e9YSMmXSu1Y
-
+            name: changeMe
+            token: changeMe
